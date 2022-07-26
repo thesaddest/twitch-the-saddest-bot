@@ -1,0 +1,1 @@
+export const BLOCKED_WORDS = ["follow for follow", "cats"]
