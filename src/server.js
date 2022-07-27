@@ -27,10 +27,11 @@ client.on('message', (channel, tags, message, self) => {
 
 function checkTwitchChat(channel, tags, message) {
     let shouldSendMessage = false;
-    //check message
     shouldSendMessage = BLOCKED_WORDS.some(blockedWord => message.includes(blockedWord.toLowerCase()));
-    //tell user
-    client.say(channel, `@${tags.username}, sorry! Your message was deleted.`);
-    //delete message
-    client.deletemessage(channel, tags.id)
+    if(shouldSendMessage) {
+        //tell user
+        client.say(channel, `@${tags.username}, sorry! Your message was deleted.`);
+        //delete message
+        client.deletemessage(channel, tags.id)
+    }
 }
