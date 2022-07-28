@@ -26,6 +26,7 @@ client.on('message', (channel, tags, message, self) => {
 });
 
 function checkTwitchChat(channel, tags, message) {
+    message = message.toLowerCase();
     let shouldSendMessage = false;
     shouldSendMessage = BLOCKED_WORDS.some(blockedWord => message.includes(blockedWord.toLowerCase()));
     if(shouldSendMessage) {
