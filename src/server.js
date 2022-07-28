@@ -7,10 +7,10 @@ const client = new tmi.Client({
         reconnect: true
     },
     identity: {
-        username: "the_saddest_bot",
-        password: "oauth:6wgwqwnxhfta4xw9dgdsq7g1aj1mn2"
+        username: process.env.TWITCH_BOT_USERNAME,
+        password: process.env.TWITCH_OAUTH_ACCESS_TOKEN
     },
-    channels: [ "the_saddest_bot" ]
+    channels: [ process.env.TWITCH_BOT_USERNAME ]
 });
 
 client.connect();
